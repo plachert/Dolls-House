@@ -5,12 +5,21 @@ class Pin:
     def __init__(self, number):
         GPIO.setmode(GPIO.BCM)
         GPIO.setwarnings(False)
+        GPIO.setup(number,GPIO.OUT)
         self.number = number
         self.state = False
     
     @property
     def number(self):
         return self._number
+    
+    def change_state(self):
+        if self.state:
+            GPIO.output(self.number,GPIO.LOW)
+            self.state = False
+        else:
+            GPIO.output(self.number,GPIO.HIGH)
+            self.state = True
     
     @number.setter
     def number(self, number):
