@@ -7,6 +7,7 @@ class RpiGUI(tk.Frame):
         tk.Frame.__init__(self, parent, *args, **kwargs)
         self.parent = parent
         self.grid(column=5, row=20)
+        
         #mapping board to buttons
         board = get_board()
         self.board = []
@@ -60,6 +61,7 @@ class NonPinButton(tk.Button):
 
 if __name__ == '__main__':
     root = tk.Tk()
+    root.title('RaspberryPi GPIOs')
     RpiGUI(root)
     root.mainloop()
 
