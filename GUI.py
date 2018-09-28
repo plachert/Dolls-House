@@ -14,7 +14,8 @@ class RpiGUI(tk.Frame):
         for i in range(len(board[0])):
             if type(board[0][i])==Pin:
                 button = PinButton(self, board[0][i])
-                tk.Label(self, text=board[0][i].special).grid(column=1, row=i+1)
+                label_text = 'GPIO '+ str(board[0][i].number) + ' ' + board[0][i].special
+                tk.Label(self, text=label_text).grid(column=1, row=i+1)
                 
             else:
                 button = NonPinButton(self, board[0][i])
@@ -25,7 +26,8 @@ class RpiGUI(tk.Frame):
         for i in range(len(board[1])):
             if type(board[1][i])==Pin:
                 button = PinButton(self, board[1][i])
-                tk.Label(self, text=board[1][i].special).grid(column=5, row=i+1)
+                label_text = 'GPIO '+ str(board[1][i].number) + ' ' + board[1][i].special
+                tk.Label(self, text=label_text).grid(column=5, row=i+1)
                 
             else:
                 button = NonPinButton(self, board[1][i])
