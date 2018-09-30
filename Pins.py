@@ -1,9 +1,12 @@
-import RPi.GPIO as GPIO
-
+try:
+    import RPi.GPIO as GPIO
+except ModuleNotFoundError:
+    import RPi_GPIO_ as GPIO
+    
 def get_board():
     board = [['3v3', Pin(2, 'SDA'), Pin(3, 'SCL'), Pin(4, 'GPCLK0'),
              'Ground', Pin(17, ''), Pin(27, ''), Pin(22, ''), '3v3',
-             Pin(10, 'MOSI'), Pin(9, 'MISO'), Pin(11, 'SCLK'),
+             Pin(10, 'MOSI'), Pin(9, 'MISO'), Pin(11, 'SCLK'), 'Ground',
              Pin(0, 'ID_SD'), Pin(5, ''), Pin(6, ''), Pin(13, 'PWM1'),
              Pin(19, 'MISO'), Pin(26, ''), 'Ground'],
              ['5v Power', '5v Power', 'Ground', Pin(14, 'TXD'),
