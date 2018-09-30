@@ -1,6 +1,7 @@
 BCM = None
 OUT = None
-
+HIGH = None
+LOW = None
 def setmode(*args):
     pass
 
